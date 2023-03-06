@@ -18,6 +18,7 @@ const BlogList = (props) => {
   };
   useEffect(() => {
     fetchBlog();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Row>
