@@ -12,6 +12,7 @@ const BlogItem = (props) => {
         <Card.Body>
           <Card.Title>
             {title}
+            <br />
             <a
               onClick={(e) => e.stopPropagation()}
               href={`${process.env.REACT_APP_URL}/blogPosts/${_id}/pdf`}
