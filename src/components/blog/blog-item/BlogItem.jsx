@@ -10,7 +10,15 @@ const BlogItem = (props) => {
       <Card className="blog-card">
         <Card.Img variant="top" src={cover} className="blog-cover" />
         <Card.Body>
-          <Card.Title>{title}</Card.Title>
+          <Card.Title>
+            {title}
+            <a
+              onClick={(e) => e.stopPropagation()}
+              href={`${process.env.REACT_APP_URL}/blogPosts/${_id}/pdf`}
+            >
+              Download pdf
+            </a>
+          </Card.Title>
         </Card.Body>
         <Card.Footer>
           <BlogAuthor {...author} />
