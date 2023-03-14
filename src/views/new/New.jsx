@@ -26,32 +26,32 @@ const NewBlogPost = (props) => {
   const [blogPost, setBlogPost] = useState(null);
   const url = process.env.REACT_APP_URL;
 
-  const sendPost = async () => {
-    try {
-      let response = await fetch(url + "/authors");
-      if (response.ok) {
-        console.log(response);
-        let authors = await response.json();
-        let author = authors.find(
-          (author) =>
-            author.name.toLowerCase() === authorName.toLowerCase() &&
-            author.surname.toLowerCase() === authorSurname.toLowerCase()
-        );
-        if (author) {
-          console.log(author.avatar);
-          setAuthorAvatar(author.avatar);
-        } else {
-          setAuthorAvatar(
-            `https://ui-avatars.com/api/?name=${authorName}+${authorSurname}`
-          );
-        }
-      } else {
-        console.log("Error!!!");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const sendPost = async () => {
+  //   try {
+  //     let response = await fetch(url + "/authors");
+  //     if (response.ok) {
+  //       console.log(response);
+  //       let authors = await response.json();
+  //       let author = authors.find(
+  //         (author) =>
+  //           author.name.toLowerCase() === authorName.toLowerCase() &&
+  //           author.surname.toLowerCase() === authorSurname.toLowerCase()
+  //       );
+  //       if (author) {
+  //         console.log(author.avatar);
+  //         setAuthorAvatar(author.avatar);
+  //       } else {
+  //         setAuthorAvatar(
+  //           `https://ui-avatars.com/api/?name=${authorName}+${authorSurname}`
+  //         );
+  //       }
+  //     } else {
+  //       console.log("Error!!!");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const handleCoverUpload = async (id) => {
     try {
@@ -78,13 +78,13 @@ const NewBlogPost = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blogPost]);
 
-  useEffect(() => {
-    if (authorAvatar) {
-      sendsPost();
-    }
+  // useEffect(() => {
+  //   if (authorAvatar) {
+  //     sendsPost();
+  //   }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authorAvatar]);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [authorAvatar]);
 
   const sendsPost = async () => {
     try {
@@ -126,7 +126,7 @@ const NewBlogPost = (props) => {
         className="mt-5"
         onSubmit={(e) => {
           e.preventDefault();
-          sendPost();
+          sendsPost();
         }}
       >
         <Form.Group controlId="blog-form" className="mt-3">
