@@ -12,7 +12,7 @@ const BlogList = (props) => {
     if (res.ok) {
       let data = await res.json();
       console.log(data);
-      setPosts(data);
+      setPosts(data.blogs);
       console.log(data);
     }
   };
